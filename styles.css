@@ -276,39 +276,6 @@ transition:0.3s;
 transform:scale(1.2);
 }
 
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-.navbar-principal{
-flex-direction:column;
-height:auto;
-gap:10px;
-}
-
-.links{
-gap:15px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.logo img{
-height:75px;
-}
-
-.carousel-item img{
-height:350px;
-}
-
-.carousel-caption h2{
-font-size:28px;
-}
-
-.carousel-caption p{
-font-size:16px;
-}
-
-}
 /* MENU LATERAL FLORES */
 /*Solo se cambio el color y la letra*/
 .titulo-lateral{
@@ -465,4 +432,81 @@ padding:30px;
 border-radius:15px;
 background:#fdfaf7;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+/* RESPONSIVE - ACTUALIZADO PARA CELULARES */
+
+@media(max-width:768px){
+
+  /* NAVBAR - Reducimos el espacio a los lados para ganar pantalla */
+  .navbar-principal{
+    flex-direction:column;
+    height:auto;
+    gap:10px;
+    padding: 15px 15px; 
+  }
+
+  .links{
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .logo img{
+    height:75px;
+  }
+
+  /* CARRUSEL - Ajustamos altura para que no ocupe toda la pantalla del teléfono */
+  .carousel-item img{
+    height:300px; 
+  }
+
+  .carousel-caption h2{
+    font-size:28px;
+  }
+
+  .carousel-caption p{
+    font-size:16px;
+  }
+
+  /* PRODUCTOS Y FILTROS */
+  .productos-seccion{
+    padding:40px 15px; /* Menos padding lateral en celular */
+    margin-top:20px;
+  }
+
+  .productos-seccion h2{
+    font-size: 32px; /* Título un poco más pequeño */
+  }
+
+  .botones-filtros{
+    flex-wrap: wrap; /* Si hay muchos botones, bajan a la siguiente línea */
+    gap: 10px;
+  }
+
+  .boton-cafe{
+    width: 48%; /* Hace que los botones sean más grandes y fáciles de tocar */
+    padding: 12px 10px;
+  }
+
+  /* CUADRÍCULA DE FLORES - Fuerza 1 sola columna en teléfonos */
+  .grid-recomendados{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* PÁGINA DE INFORMACIÓN - Reduce los bordes gruesos y paddings */
+  .caja-compromiso, 
+  .seccion-info:first-child p {
+    padding: 15px; 
+  }
+
+  .texto-info {
+    font-size: 1rem; /* Texto ligeramente más manejable para leer */
+  }
+
+  .redes-info {
+    flex-wrap: wrap;
+  }
 }
