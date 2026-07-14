@@ -276,64 +276,105 @@ transition:0.3s;
 transform:scale(1.2);
 }
 
-/* MENU LATERAL FLORES */
-/*Solo se cambio el color y la letra*/
-.titulo-lateral{
-font-family:'Playfair Display',serif;
-font-size:20px;
-color:#ff6f91;
-margin-bottom:10px;
-text-align:center;
+/* ==================================================== */
+/* ESTILOS PARA MENÚ DESPLEGABLE (ACTUALIZADO) */
+/* ==================================================== */
+
+details.menu-desplegable {
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-/* BOTONES DE CATEGORIAS */
-/*Solo se cambio el color a blanco que es todo el fondo mas un poco
-de sombra en el cotorno de tipo de flor*/
+/* Título Desplegable (Luce como los demás botones) */
+details.menu-desplegable summary {
+  border: none;
+  border-radius: 10px;
+  background: #fff5f7;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 20px;
+  text-align: center;
+  cursor: pointer;
+  list-style: none;
+  transition: 0.3s;
+  display: block; /* Asegura buen centrado */
+}
+
+/* Efecto al tocar o cuando está abierto */
+details.menu-desplegable summary:hover,
+details[open].menu-desplegable summary {
+  background: #ff6f91;
+  color: white;
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Ocultar la flecha por defecto del navegador */
+details.menu-desplegable summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Flechas personalizadas */
+details.menu-desplegable summary::after {
+  content: ' ▼';
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+details[open].menu-desplegable summary::after {
+  content: ' ▲';
+}
+
+/* Ajuste del contenedor interno de las opciones */
+details.menu-desplegable .list-group {
+  background: transparent;
+  box-shadow: none;
+  padding: 15px 5px 0 5px; /* Espacio superior para separar botones del título */
+  border: none;
+}
+
+/* BOTONES DE CATEGORIAS INTERNOS */
 .list-group-item{
-border:none;
-border-radius:10px;
-margin-bottom:8px;
-background:#fff5f7;
-color:#333; /*Sombria de la tabla*/
-font-weight:500;
-text-align:center;
-transition:0.3s;
+  border:none;
+  border-radius:10px;
+  margin-bottom:8px;
+  background:#fff5f7;
+  color:#333;
+  font-weight:500;
+  text-align:center;
+  transition:0.3s;
+  width: 100%; /* Para que los botones abarquen todo el ancho */
+  display: block;
 }
 
-/* EFECTO HOVER */
-/*Todo este aprtado es el efecto cuando pasas el mouse al
-tipo de flor*/
 .list-group-item:hover{
-background:#ff6f91;
-color:white;
-transform:scale(1.03);
-box-shadow:0 4px 10px rgba(0,0,0,0.15);
+  background:#ff6f91;
+  color:white;
+  transform:scale(1.03);
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* CONTENEDOR MENU */
-
-.list-group{
-background:white;
-padding:15px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
 /* ARREGLAR COLOR AZUL DE LINKS EN LISTA */
-
 .list-group a{
-text-decoration:none;
-color:#333;
+  text-decoration:none;
+  color:#333;
+  display: block;
+  width: 100%;
 }
 
 .list-group a:visited{
-color:#333;
+  color:#333;
 }
 
 .list-group a:hover{
-color:white;
+  color:white;
 }
 
+/* ==================================================== */
 /* PAGINA INFORMACION */
+/* ==================================================== */
 
 .seccion-info{
 margin-bottom:50px;
@@ -434,30 +475,43 @@ background:#fdfaf7;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
+.texto-descripcion {
+    font-size: 18px; 
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
 
+/* ==================================================== */
 /* RESPONSIVE - ACTUALIZADO PARA CELULARES */
+/* ==================================================== */
 
 @media(max-width:768px){
 
-  /* NAVBAR - Reducimos el espacio a los lados para ganar pantalla */
-  .navbar-principal{
-    flex-direction:column;
-    height:auto;
-    gap:10px;
-    padding: 15px 15px; 
+  /* NAVBAR - Más compacta para ahorrar pantalla */
+  .navbar-principal {
+    flex-direction: column;
+    height: auto;
+    gap: 5px; /* Menos separación vertical */
+    padding: 10px 15px; 
   }
 
-  .links{
-    gap:15px;
-    flex-wrap:wrap;
-    justify-content:center;
+  .logo img {
+    height: 60px; /* Logo ligeramente más pequeño en celular */
   }
 
-  .logo img{
-    height:75px;
+  .links {
+    gap: 10px; /* Menos espacio entre palabras */
+    flex-direction: row; /* Mantenerlos en una sola línea */
+    flex-wrap: nowrap;
+    justify-content: center;
   }
 
-  /* CARRUSEL - Ajustamos altura para que no ocupe toda la pantalla del teléfono */
+  .links a {
+    font-size: 13px; /* Letra más pequeña para que quepan */
+    padding: 2px 0;
+  }
+
+  /* CARRUSEL - Ajustamos altura para que no ocupe toda la pantalla */
   .carousel-item img{
     height:300px; 
   }
@@ -472,22 +526,34 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
 
   /* PRODUCTOS Y FILTROS */
   .productos-seccion{
-    padding:40px 15px; /* Menos padding lateral en celular */
+    padding:40px 15px;
     margin-top:20px;
   }
 
   .productos-seccion h2{
-    font-size: 32px; /* Título un poco más pequeño */
+    font-size: 32px;
   }
 
   .botones-filtros{
-    flex-wrap: wrap; /* Si hay muchos botones, bajan a la siguiente línea */
+    flex-wrap: wrap; 
     gap: 10px;
   }
 
   .boton-cafe{
-    width: 48%; /* Hace que los botones sean más grandes y fáciles de tocar */
+    width: 48%; 
     padding: 12px 10px;
+  }
+
+  .tarjeta-flor {
+    margin: 0 10px; /* Espacio a los lados */
+  }
+
+  .tarjeta-flor h4 {
+    font-size: 16px; /* texto mas pequeño */
+  }
+
+  .tarjeta-flor p {
+    font-size: 15px; /* texto mas pequeño */
   }
 
   /* CUADRÍCULA DE FLORES - Fuerza 1 sola columna en teléfonos */
@@ -503,10 +569,14 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
   }
 
   .texto-info {
-    font-size: 1rem; /* Texto ligeramente más manejable para leer */
+    font-size: 1rem; 
   }
 
   .redes-info {
     flex-wrap: wrap;
+  }
+
+  .texto-descripcion {
+    font-size: 15px; /* Este tamaño se verá muy bien en celular */
   }
 }
