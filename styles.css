@@ -129,6 +129,19 @@ font-size:20px;
 color:#fff;
 }
 
+.contenedor-nota {
+    text-align: center; /* Centra la imagen horizontalmente */
+    margin: 25px auto;   /* Le da espacio arriba y abajo para que no se pegue al texto */
+}
+
+.imagen-nota {
+    max-width: 400px;    /* Este es el truco: define el tamaño máximo para que no se vea enorme */
+    width: 100%;         /* Permite que se encoja perfectamente en pantallas de celulares */
+    height: auto;        /* Mantiene la proporción original para que no se deforme */
+    border-radius: 10px; /* Opcional: le redondea las esquinas para que combine con tus tarjetas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Opcional: le da una sombra suave para que resalte */
+}
+
 /* SECCION ARREGLOS */
 /* Todo se mantuvo como tal lo unico que se cambio fue el 
 color de fondo de la seccion tipo de flores */
@@ -276,7 +289,7 @@ transition:0.3s;
 transform:scale(1.2);
 }
 
-/* ==================================================== */
+
 /* ESTILOS PARA MENÚ DESPLEGABLE (ACTUALIZADO) */
 /* ==================================================== */
 
@@ -285,7 +298,7 @@ details.menu-desplegable {
   width: 100%;
 }
 
-/* Título Desplegable (Luce como los demás botones) */
+/* Título Desplegable  */
 details.menu-desplegable summary {
   border: none;
   border-radius: 10px;
@@ -481,13 +494,13 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
     margin-bottom: 10px;
 }
 
-/* ==================================================== */
+
+
 /* RESPONSIVE - ACTUALIZADO PARA CELULARES */
-/* ==================================================== */
 
 @media(max-width:768px){
 
-  /* NAVBAR - Más compacta para ahorrar pantalla */
+  /* NAVBAR - Más compacta para la pantalla*/
   .navbar-principal {
     flex-direction: column;
     height: auto;
@@ -507,11 +520,11 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
   }
 
   .links a {
-    font-size: 13px; /* Letra más pequeña para que quepan */
+    font-size: 13px; /* Letra más pequeña*/
     padding: 2px 0;
   }
 
-  /* CARRUSEL - Ajustamos altura para que no ocupe toda la pantalla */
+  /* CARRUSEL - Ajuste de altura para la pantalla */
   .carousel-item img{
     height:300px; 
   }
@@ -556,7 +569,7 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
     font-size: 15px; /* texto mas pequeño */
   }
 
-  /* CUADRÍCULA DE FLORES - Fuerza 1 sola columna en teléfonos */
+  /* CUADRÍCULA DE FLORES - 1 sola columna en teléfonos */
   .grid-recomendados{
     grid-template-columns: 1fr;
     gap: 20px;
@@ -577,6 +590,6 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
   }
 
   .texto-descripcion {
-    font-size: 15px; /* Este tamaño se verá muy bien en celular */
+    font-size: 15px; /* tamaño para celular */
   }
 }
